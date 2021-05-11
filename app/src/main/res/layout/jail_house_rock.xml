@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JailHouseRock">
+
+    <Button
+        android:id="@+id/getRecords"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_margin="0dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="@+id/last_name_etxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.774"
+        app:layout_constraintStart_toEndOf="@+id/last_name_etxt"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/recent_btn"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_margin="0dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="@+id/first_name_etxt"
+        app:layout_constraintStart_toStartOf="@+id/getRecords" />
+
+    <EditText
+        android:id="@+id/last_name_etxt"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_margin="0dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Last"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/first_name_etxt"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_margin="0dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="First"
+        app:layout_constraintEnd_toStartOf="@+id/recent_btn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/last_name_etxt"
+        app:layout_constraintTop_toBottomOf="@+id/last_name_etxt" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/jail_house_fragement"
+        android:name="com.example.funhouse.searchResults"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_name_etxt"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingClass" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

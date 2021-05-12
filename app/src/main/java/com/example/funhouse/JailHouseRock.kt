@@ -4,33 +4,39 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.example.funhouse.databinding.JailHouseRockBinding
 
 class JailHouseRock : AppCompatActivity() {
-    lateinit var searchButton: Button
-    lateinit var firstname: EditText
-    lateinit var lastName: EditText
     lateinit var mSearchResults: searchResults
+    private lateinit var viewModel: SearchResultsViewModel
+    lateinit var binding : JailHouseRockBinding
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.jail_house_rock)
+        binding = JailHouseRockBinding.inflate(layoutInflater)
 
         mSearchResults = searchResults()
-        searchButton = findViewById(R.id.getRecords)
-        firstname = findViewById(R.id.first_name_etxt)
-        lastName = findViewById(R.id.last_name_etxt)
-        searchButton.apply{
+        viewModel = ViewModelProvider(this).get(SearchResultsViewModel::class.java)
+        with(binding)
+        {
+            searchBtn.apply{
             setOnClickListener{
-                search(firstname.text.toString(), lastName.text.toString())}
+                search(firstNameEtxt.text.toString(), lastNameEtxt.text.toString())}
         }
-        supportFragmentManager.beginTransaction()
-            .add(R.id.jail_house_fragement,mSearchResults)
-            .setReorderingAllowed(true)
-            .commit()
+            supportFragmentManager.beginTransaction()
+                .add(binding.jailHouseFragement.id,mSearchResults)
+                .setReorderingAllowed(true)
+                .commit()
+        }
 
 
 
@@ -43,8 +49,16 @@ class JailHouseRock : AppCompatActivity() {
             return Intent(context, JailHouseRock::class.java)
         }
     }
-    private fun search(first_name :String?, last_name: String)
+    private fun search(firstName :String, lastName: String)
     {
-        mSearchResults.search(first_name, last_name)
+        if (lastName.isEmpty()) {
+            Log.d("_DEBUG", "LastName is Empty")
+            Toast.makeText(applicationContext, "Last Name Required", Toast.LENGTH_LONG).show()
+            return
+        }
+        viewModel.search(firstName, lastName)
+            .observe(this, Observer { resultsList ->
+                searchResults.bAdapter.updateList(resultsList)
+            }
     }
 }

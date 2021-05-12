@@ -7,7 +7,7 @@
     tools:context=".JailHouseRock">
 
     <Button
-        android:id="@+id/getRecords"
+        android:id="@+id/search_btn"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_margin="0dp"

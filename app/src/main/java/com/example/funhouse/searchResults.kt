@@ -9,29 +9,31 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.funhouse.databinding.SearchResultsFragmentBinding
 
 class searchResults : Fragment() , BookingListener {
 
     companion object {
         fun newInstance() = searchResults()
     }
+    lateinit var binding : SearchResultsFragmentBinding
+    lateinit var bAdapter : BookingAdapter
 
-    private lateinit var viewModel: SearchResultsViewModel
-    private lateinit var recyclerView: RecyclerView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.search_results_fragment, container, false)
+        binding = SearchResultsFragmentBinding.inflate(layoutInflater, container, false)
+        val view = binding.root
         val gridLayoutManager = LinearLayoutManager(
             requireContext(),
             LinearLayoutManager.VERTICAL,
             false
         )
-        recyclerView = view.findViewById(R.id.jail_records)
-        recyclerView.apply {
+        bAdapter = BookingAdapter()
+        binding.jailRecords.apply {
             layoutManager = gridLayoutManager
-            adapter = BookingAdapter().apply {
+            adapter = bAdapter.apply {
                 listener = this@searchResults
             }
         }
@@ -40,14 +42,10 @@ class searchResults : Fragment() , BookingListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SearchResultsViewModel::class.java)
+        //viewModel = ViewModelProvider(this).get(SearchResultsViewModel::class.java)
 
 
     }
-    public fun search(first_name: String?, last_name :String)
-    {
-        viewModel.search(first_name, last_name)
 
-    }
 
 }

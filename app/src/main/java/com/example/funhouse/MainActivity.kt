@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.funhouse.JailHouseRock
+import com.example.funhouse.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var jailRecords_btn: Button
+    lateinit var binding : ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

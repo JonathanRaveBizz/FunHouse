@@ -5,8 +5,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -21,22 +19,31 @@ class JailHouseRock : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.jail_house_rock)
         binding = JailHouseRockBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
 
         mSearchResults = searchResults()
         viewModel = ViewModelProvider(this).get(SearchResultsViewModel::class.java)
-        with(binding)
-        {
+        with(binding) {
+            Log.d("_FUCK", "we got to the binding")
             searchBtn.apply{
-            setOnClickListener{
-                search(firstNameEtxt.text.toString(), lastNameEtxt.text.toString())}
+                Log.d("_FUCK", "we got to the apply")
+                setOnClickListener {
+                    Log.d("_FUCK", "Have Hit the Click")
+                    search(firstNameEtxt.text.toString(), lastNameEtxt.text.toString())
+                }
+            }
+            recentBtn.apply{
+                setOnClickListener{
+                    recent()
+                }
+            }
         }
-            supportFragmentManager.beginTransaction()
+        supportFragmentManager.beginTransaction()
                 .add(binding.jailHouseFragement.id,mSearchResults)
                 .setReorderingAllowed(true)
                 .commit()
-        }
 
 
 
@@ -46,19 +53,26 @@ class JailHouseRock : AppCompatActivity() {
     {
         fun newIntent(context: Context): Intent
         {
+
             return Intent(context, JailHouseRock::class.java)
         }
     }
     private fun search(firstName :String, lastName: String)
     {
+        Log.d("_FUCK", "we hit the onclick listener")
         if (lastName.isEmpty()) {
             Log.d("_DEBUG", "LastName is Empty")
             Toast.makeText(applicationContext, "Last Name Required", Toast.LENGTH_LONG).show()
             return
         }
-        viewModel.search(firstName, lastName)
-            .observe(this, Observer { resultsList ->
-                searchResults.bAdapter.updateList(resultsList)
-            }
+        viewModel.search(firstName, lastName).observe( this, Observer { RecordList ->
+            mSearchResults.bAdapter.updateList(RecordList)
+        })
+    }
+    private fun recent()
+    {
+        viewModel.recent().observe(this, Observer { RecordList ->
+            mSearchResults.bAdapter.updateList(RecordList)
+        })
     }
 }

@@ -12,17 +12,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class Records (
+data class JailHouse(
 
-	@SerializedName("county_state") val county_state : String,
+	@SerializedName("city") val city : String,
 	@SerializedName("name") val name : String,
-	@SerializedName("charges") val charges : List<String>,
-	@SerializedName("id") val id : Int,
-	@SerializedName("source") val source : String,
-	@SerializedName("book_date_formatted") val book_date_formatted : String,
-	@SerializedName("details") val details : List<List<String>>,
-	@SerializedName("mugshot") val mugshot : String,
-	@SerializedName("book_date") val book_date : String,
+	@SerializedName("state_full") val state_full : String,
+	@SerializedName("address1") val address1 : String,
+	@SerializedName("source_url") val source_url : String,
+	@SerializedName("county") val county : String,
+	@SerializedName("phone") val phone : String,
+	@SerializedName("state") val state : String,
 	@SerializedName("source_id") val source_id : String,
-	@SerializedName("more_info_url") val more_info_url : String
+	@SerializedName("zip_code") val zip_code : Int,
+	@SerializedName("email") val email : String,
+	@SerializedName("has_mugshots") val has_mugshots : Boolean
 )

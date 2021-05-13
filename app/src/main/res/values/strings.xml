@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">FunHouse</string>
     <string name="jail_records">jail_records</string>
+    <string name="recent_btn_txt">Recent</string>
+    <string name="search_btn_txt">Search</string>
+    <string name="first_name_edt_hint">First</string>
+    <string name="last_edit_txt_hint">Last</string>
 </resources>

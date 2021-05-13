@@ -1,14 +1,11 @@
 package com.example.funhouse
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.funhouse.databinding.SearchResultsFragmentBinding
 
 class searchResults : Fragment() , BookingListener {
@@ -16,7 +13,7 @@ class searchResults : Fragment() , BookingListener {
     companion object {
         fun newInstance() = searchResults()
     }
-    lateinit var binding : SearchResultsFragmentBinding
+    private lateinit var binding : SearchResultsFragmentBinding
     lateinit var bAdapter : BookingAdapter
 
     override fun onCreateView(

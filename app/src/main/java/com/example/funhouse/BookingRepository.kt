@@ -1,6 +1,6 @@
 package com.example.funhouse
 
-import RecordHead
+import com.example.funhouse.records.RecordHead
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -20,5 +20,10 @@ class BookingRepository {
     fun getBookingObservable(first_name: String?, last_name: String): Single<RecordHead> {
         var recordhead = bookingAPIService.getBookings("ga-fcso", first_name, last_name);
         return recordhead
+    }
+
+    fun getRecentObservable(): Single<RecordHead> {
+        var recordHead = bookingAPIService.getRecent();
+        return recordHead
     }
 }

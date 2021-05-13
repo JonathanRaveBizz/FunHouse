@@ -1,7 +1,6 @@
 package com.example.funhouse
 
-import Records
-import android.util.Log
+import com.example.funhouse.records.Records
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +16,7 @@ class BookingAdapter :RecyclerView.Adapter<BookingAdapter.ViewHolder>() {
     private var RecordList: List<Records> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookingAdapter.ViewHolder {
-        Log.d("_WALLPAPER", "created Recylcer Veiw")
+//        Log.d("_WALLPAPER", "created Recylcer Veiw")
         val view = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.record_item, parent, false)

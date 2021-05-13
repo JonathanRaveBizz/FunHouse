@@ -1,3 +1,5 @@
+package com.example.funhouse.records
+
 import com.google.gson.annotations.SerializedName
 
 /*
@@ -14,10 +16,10 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 data class RecordHead(
 
-	@SerializedName("status") val status: Int,
-	@SerializedName("next_page") val next_page: Int,
-	@SerializedName("records") val records: List<Records>,
-	@SerializedName("current_page") val current_page: Int,
-	@SerializedName("total_records") val total_records: Int,
-	@SerializedName("msg") val msg: String
+    @SerializedName("status") val status: Int,
+    @SerializedName("next_page") val next_page: Int,
+    @SerializedName("records") val records: List<Records>,
+    @SerializedName("current_page") val current_page: Int,
+    @SerializedName("total_records") val total_records: Int,
+    @SerializedName("msg") val msg: String
 )

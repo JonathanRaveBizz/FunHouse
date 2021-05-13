@@ -10,45 +10,42 @@
         android:id="@+id/search_btn"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_margin="0dp"
-        android:text="Button"
+        android:layout_margin="10dp"
+        android:text="@string/search_btn_txt"
         app:layout_constraintBottom_toBottomOf="@+id/last_name_etxt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.774"
-        app:layout_constraintStart_toEndOf="@+id/last_name_etxt"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/last_name_etxt" />
 
     <Button
         android:id="@+id/recent_btn"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_margin="0dp"
-        android:text="Button"
+        android:layout_margin="10dp"
+        android:text="@string/recent_btn_txt"
         app:layout_constraintBottom_toBottomOf="@+id/first_name_etxt"
-        app:layout_constraintStart_toStartOf="@+id/getRecords" />
+        app:layout_constraintEnd_toEndOf="@+id/search_btn"
+        app:layout_constraintStart_toStartOf="@+id/search_btn"
+        app:layout_constraintTop_toBottomOf="@+id/last_name_etxt" />
 
     <EditText
         android:id="@+id/last_name_etxt"
-        android:layout_width="300dp"
+        android:layout_width="280dp"
         android:layout_height="50dp"
-        android:layout_margin="0dp"
-        android:layout_marginTop="28dp"
-        android:ems="10"
+        android:layout_margin="10dp"
+        android:hint="@string/last_edit_txt_hint"
         android:inputType="textPersonName"
-        android:text="Last"
+        app:layout_constraintEnd_toStartOf="@+id/search_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/first_name_etxt"
-        android:layout_width="300dp"
+        android:layout_width="280dp"
         android:layout_height="50dp"
-        android:layout_margin="0dp"
-        android:ems="10"
+        android:layout_margin="10dp"
+        android:hint="@string/first_name_edt_hint"
         android:inputType="textPersonName"
-        android:text="First"
-        app:layout_constraintEnd_toStartOf="@+id/recent_btn"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="@+id/last_name_etxt"
         app:layout_constraintStart_toStartOf="@+id/last_name_etxt"
         app:layout_constraintTop_toBottomOf="@+id/last_name_etxt" />
 
@@ -56,13 +53,12 @@
         android:id="@+id/jail_house_fragement"
         android:name="com.example.funhouse.searchResults"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/first_name_etxt"
-        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingClass" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,13 +5,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/buttonPanel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
     <Button
         android:id="@+id/jail_records"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:text="@string/jail_records"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="43dp" />
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <Button
+        android:id="@+id/weather_app"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="@string/weather"
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toEndOf="@id/jail_records"
+        app:layout_constraintTop_toTopOf="@id/jail_records"
+        app:layout_constraintBottom_toBottomOf="@id/jail_records"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/wallpaper_btn"
+        android:text="@string/wallpaper_dl"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toStartOf="@id/jail_records"
+        app:layout_constraintTop_toBottomOf="@id/jail_records"
+        app:layout_constraintEnd_toEndOf="@id/jail_records"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Copyright Jonathan Oakes"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

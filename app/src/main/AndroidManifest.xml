@@ -2,9 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.funhouse">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-
     <application
+        android:name=".WeatherApp.WeatherApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FunHouse"
         android:usesCleartextTraffic="true">
-        <activity android:name=".JailHouseRock"></activity>
+        <activity android:name=".WeatherApp.WeatherActivity"></activity>
+        <activity android:name=".WallpaperSpawner.WallpaperActivity"></activity>
+        <activity android:name=".JailHouse.JailHouseRock" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,5 +22,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

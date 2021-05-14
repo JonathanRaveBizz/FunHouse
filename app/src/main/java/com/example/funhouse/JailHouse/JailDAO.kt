@@ -1,4 +1,4 @@
-package com.example.funhouse.jails
+package com.example.funhouse.JailHouse
 
 import android.content.Context
 import androidx.room.*

@@ -1,7 +1,5 @@
-package com.example.funhouse
+package com.example.funhouse.JailHouse
 
-import com.example.funhouse.records.RecordHead
-import com.example.funhouse.records.Records
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -36,7 +34,7 @@ class SearchResultsViewModel : ViewModel() {
 
 
     private fun onError(t :Throwable) {
-        Log.e("API_FAILURE", "Failed to get com.example.funhouse.records.Records $t")
+        Log.e("API_FAILURE", "Failed to get com.example.funhouse.JailHouse.Records $t")
     }
 
     private fun searchSuccess(results : RecordHead) {

@@ -1,4 +1,4 @@
-package com.example.funhouse
+package com.example.funhouse.JailHouse
 
 import android.content.Context
 import android.content.Intent

@@ -1,4 +1,4 @@
-package com.example.funhouse.records
+package com.example.funhouse.JailHouse
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,3 +1,5 @@
+package com.example.funhouse.WeatherApp.models
+
 import com.google.gson.annotations.SerializedName
 
 /*
@@ -12,18 +14,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class JailHouse(
+data class ZeWeatherHead (
 
-	@SerializedName("city") val city : String,
+	@SerializedName("coord") val coord : Coord,
+	@SerializedName("weather") val weather : List<Weather>,
+	@SerializedName("base") val base : String,
+	@SerializedName("main") val main : Main,
+	@SerializedName("visibility") val visibility : Int,
+	@SerializedName("wind") val wind : Wind,
+	@SerializedName("clouds") val clouds : Clouds,
+	@SerializedName("dt") val dt : Int,
+	@SerializedName("sys") val sys : Sys,
+	@SerializedName("timezone") val timezone : Int,
+	@SerializedName("id") val id : Int,
 	@SerializedName("name") val name : String,
-	@SerializedName("state_full") val state_full : String,
-	@SerializedName("address1") val address1 : String,
-	@SerializedName("source_url") val source_url : String,
-	@SerializedName("county") val county : String,
-	@SerializedName("phone") val phone : String,
-	@SerializedName("state") val state : String,
-	@SerializedName("source_id") val source_id : String,
-	@SerializedName("zip_code") val zip_code : Int,
-	@SerializedName("email") val email : String,
-	@SerializedName("has_mugshots") val has_mugshots : Boolean
+	@SerializedName("cod") val cod : Int
 )

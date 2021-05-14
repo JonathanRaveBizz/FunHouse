@@ -5,4 +5,7 @@
     <string name="search_btn_txt">Search</string>
     <string name="first_name_edt_hint">First</string>
     <string name="last_edit_txt_hint">Last</string>
+    <string name="abyss_branding">Powered By the Abyss</string>
+    <string name="weather">Weather</string>
+    <string name="wallpaper_dl">Wallpaper DL</string>
 </resources>

@@ -1,4 +1,6 @@
-import com.example.funhouse.records.Records
+package com.example.funhouse.WeatherApp.models
+
+import com.google.gson.annotations.SerializedName
 
 /*
 Copyright (c) 2021 Kotlin Data Classes Generated from JSON powered by http://www.json2kotlin.com
@@ -12,9 +14,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class JailHead (
+data class Main (
 
-	@SerializedName("status") val status : Int,
-	@SerializedName("msg") val msg : String,
-	@SerializedName("records") val records : List<Records>
+	@SerializedName("temp") val temp : Double,
+	@SerializedName("feels_like") val feels_like : Double,
+	@SerializedName("temp_min") val temp_min : Double,
+	@SerializedName("temp_max") val temp_max : Double,
+	@SerializedName("pressure") val pressure : Int,
+	@SerializedName("humidity") val humidity : Int
 )

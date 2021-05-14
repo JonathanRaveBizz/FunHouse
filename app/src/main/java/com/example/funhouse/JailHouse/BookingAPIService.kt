@@ -1,7 +1,5 @@
-package com.example.funhouse
+package com.example.funhouse.JailHouse
 
-import JailHead
-import com.example.funhouse.records.RecordHead
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

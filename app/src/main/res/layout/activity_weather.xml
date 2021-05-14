@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WeatherApp.WeatherActivity">
+
+    <ImageView
+        android:id="@+id/current_weather_ico"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="40dp"
+        />
+    <TextView
+        android:id="@+id/city_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/current_weather_ico"
+        android:textSize="25sp"
+        android:text="Atlanta"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+    <TextView
+        android:id="@+id/temp_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/city_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="70sp"
+        android:text="70"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/temp_txt"
+        app:layout_constraintTop_toBottomOf="@id/city_txt"
+        android:text="°"
+        android:textAlignment="center"
+        android:textSize="70sp"
+        android:gravity="center_horizontal" />
+    <TextView
+        android:id="@+id/weather_descrip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/temp_txt"
+        android:text="SunnyWithAChanceOfMeatBalls"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:gravity="center_horizontal" />
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

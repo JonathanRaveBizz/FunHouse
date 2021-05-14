@@ -1,4 +1,4 @@
-package com.example.funhouse.jails
+package com.example.funhouse.JailHouse
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -3,10 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".JailHouse.searchResults">
+    tools:context=".WallpaperSpawner.fragments.Wallpaper">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/jail_records"
+        android:id="@+id/wallpaper_rv"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        />
+
 </FrameLayout>

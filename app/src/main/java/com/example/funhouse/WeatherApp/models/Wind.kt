@@ -1,4 +1,4 @@
-package com.example.funhouse.records
+package com.example.funhouse.WeatherApp.models
 
 import com.google.gson.annotations.SerializedName
 
@@ -14,17 +14,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class Records (
+data class Wind (
 
-	@SerializedName("county_state") val county_state : String,
-	@SerializedName("name") val name : String,
-	@SerializedName("charges") val charges : List<String>,
-	@SerializedName("id") val id : Int,
-	@SerializedName("source") val source : String,
-	@SerializedName("book_date_formatted") val book_date_formatted : String,
-	@SerializedName("details") val details : List<List<String>>,
-	@SerializedName("mugshot") val mugshot : String,
-	@SerializedName("book_date") val book_date : String,
-	@SerializedName("source_id") val source_id : String,
-	@SerializedName("more_info_url") val more_info_url : String
+	@SerializedName("speed") val speed : Double,
+	@SerializedName("deg") val deg : Int
 )

@@ -1,6 +1,5 @@
-package com.example.funhouse
+package com.example.funhouse.JailHouse
 
-import com.example.funhouse.records.RecordHead
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

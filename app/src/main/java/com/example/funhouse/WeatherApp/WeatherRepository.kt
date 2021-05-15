@@ -1,17 +1,23 @@
 package com.example.funhouse.WeatherApp
 
-import com.example.funhouse.WeatherApp.models.ZeWeatherHead
+import ZeGeocodeHead
+import com.example.funhouse.WeatherApp.models.circleResponce.CircleHead
+import com.example.funhouse.WeatherApp.models.weather.ZeWeatherHead
 import io.reactivex.Single
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 
 class WeatherRepository (private val weatherAPI: WeatherAPI){
-
 
     fun getSpaghettiWeatherObservable() : Single<ZeWeatherHead>
     {
         return weatherAPI.getWeather()
+    }
+    fun getMeatballTargetsObservable(lat : Double, lon : Double) : Single<CircleHead>
+    {
+        return weatherAPI.getCities(lat=lat, lon=lon)
+    }
+    fun getSpaghettiWeatherObservable(city : String) : Single<ZeWeatherHead>
+    {
+        return weatherAPI.getWeather(city=city)
     }
 
 }

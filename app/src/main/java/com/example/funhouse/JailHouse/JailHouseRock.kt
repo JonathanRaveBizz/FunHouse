@@ -26,11 +26,11 @@ class JailHouseRock : AppCompatActivity() {
         mSearchResults = searchResults()
         viewModel = ViewModelProvider(this).get(SearchResultsViewModel::class.java)
         with(binding) {
-            Log.d("_FUCK", "we got to the binding")
+            Log.d("_INFO", "we got to the binding")
             searchBtn.apply{
-                Log.d("_FUCK", "we got to the apply")
+                Log.d("_INFO", "we got to the apply")
                 setOnClickListener {
-                    Log.d("_FUCK", "Have Hit the Click")
+                    Log.d("_INFO", "Have Hit the Click")
                     search(firstNameEtxt.text.toString(), lastNameEtxt.text.toString())
                 }
             }

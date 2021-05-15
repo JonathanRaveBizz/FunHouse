@@ -1,4 +1,4 @@
-package com.example.funhouse.WeatherApp.models
+package com.example.funhouse.WeatherApp.models.circleResponce
 
 import com.google.gson.annotations.SerializedName
 
@@ -14,11 +14,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class Sys (
+data class Main (
 
-	@SerializedName("type") val type : Int,
-	@SerializedName("id") val id : Int,
-	@SerializedName("country") val country : String,
-	@SerializedName("sunrise") val sunrise : Int,
-	@SerializedName("sunset") val sunset : Int
+	@SerializedName("temp") val temp : Double,
+	@SerializedName("feels_like") val feels_like : Double,
+	@SerializedName("temp_min") val temp_min : Double,
+	@SerializedName("temp_max") val temp_max : Double,
+	@SerializedName("pressure") val pressure : Int,
+	@SerializedName("humidity") val humidity : Int
 )

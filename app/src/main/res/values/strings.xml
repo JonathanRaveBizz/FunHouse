@@ -8,4 +8,5 @@
     <string name="abyss_branding">Powered By the Abyss</string>
     <string name="weather">Weather</string>
     <string name="wallpaper_dl">Wallpaper DL</string>
+    <string name="city_search_txt">Search for a City</string>
 </resources>

@@ -53,7 +53,7 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
 
     private fun updateWeather(weatherHead: ZeWeatherHead) {
         Log.d("_INFO", "We Got the Info for ${weatherHead.name}")
-        this.weatherHead = weatherHead
+        //weatherHead = mWeatherHead
 
         with(binding) {
             currentWeatherIco.apply {
@@ -66,7 +66,7 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
             weatherDescrip.text = weatherHead.weather[0].main
             cityTxt.text = weatherHead.name
         }
-        viewModel.loadListofCities(weatherHead.coord.lat, weatherHead.coord.lon)
+        viewModel.loadListofCities(lat = weatherHead.coord.lat, lon = weatherHead.coord.lon)
 
     }
 
@@ -83,6 +83,7 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
     }
 
     override fun onItemClick(city: Cities) {
+        Log.d("DEBUG", "trying to load ${city.name}")
         viewModel.loadWeatherByCity(city.name)
     }
     fun createObservers()
@@ -93,7 +94,9 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
             })
         viewModel.getListOfCities()
             .observe(this, Observer { newWeather ->
-                (binding.weatherRv.adapter as WeatherAdapter).updateList(newWeather)
+                Log.d("DEBUG", "we have ${newWeather.size} cities")
+                mAdapter.updateList(newWeather)
+
             })
     }
 }

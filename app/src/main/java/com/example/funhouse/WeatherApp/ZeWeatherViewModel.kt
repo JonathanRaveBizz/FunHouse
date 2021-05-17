@@ -36,7 +36,7 @@ class ZeWeatherViewModel {
     fun loadListofCities(lat : Double, lon : Double)
     {
         disposables.add(
-            weatherRepo.getMeatballTargetsObservable(lat, lon)
+            weatherRepo.getMeatballTargetsObservable(lat=lat, lon=lon)
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::citiesSuccess, this::onError)
         )
@@ -50,6 +50,9 @@ class ZeWeatherViewModel {
     }
 
     private fun citiesSuccess(lost : CircleHead) {
+        for (cities in lost.list) {
+            Log.d("DEBUG", "city ${cities.name}")
+        }
         city.postValue(lost.list)
     }
 

@@ -1,5 +1,6 @@
 package com.example.funhouse.WeatherApp
 
+import android.util.Log
 import com.example.funhouse.WeatherApp.models.circleResponce.Cities
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -21,7 +22,9 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.ViewHolder>() {
     override fun getItemCount(): Int = weatherList.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        Log.d("DEBUG", "Binding for ${weatherList[position].name}" )
         holder.bind(weatherList[position])
+
     }
 
     fun updateList(newList: List<Cities>) {
@@ -31,10 +34,10 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.ViewHolder>() {
 
 
     inner class ViewHolder(binding: WeatherItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        private lateinit var weatherItem: Cities
+        //private lateinit var weatherItem: Cities
 
         fun bind(paper: Cities) {
-            weatherItem = paper
+            val weatherItem = paper
             with(binding)
             {
                     Glide.with(itemView)

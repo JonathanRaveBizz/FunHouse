@@ -95,6 +95,9 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
         viewModel.getListOfCities()
             .observe(this, Observer { newWeather ->
                 Log.d("DEBUG", "we have ${newWeather.size} cities")
+                newWeather.forEach {
+                    Log.d("DEBUG", it.name)
+                }
                 mAdapter.updateList(newWeather)
 
             })

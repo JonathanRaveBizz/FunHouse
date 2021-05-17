@@ -10,13 +10,13 @@ import com.example.funhouse.databinding.WeatherItemBinding
 
 class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.ViewHolder>() {
     lateinit var listener: WeatherAdapterListener
-    lateinit var binding: WeatherItemBinding
+    //lateinit var binding: WeatherItemBinding
 
     private var weatherList: List<Cities> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        binding = WeatherItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding)
+       val view = WeatherItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int = weatherList.size
@@ -33,9 +33,8 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.ViewHolder>() {
     }
 
 
-    inner class ViewHolder(binding: WeatherItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: WeatherItemBinding) : RecyclerView.ViewHolder(binding.root) {
         //private lateinit var weatherItem: Cities
-
         fun bind(paper: Cities) {
             val weatherItem = paper
             with(binding)

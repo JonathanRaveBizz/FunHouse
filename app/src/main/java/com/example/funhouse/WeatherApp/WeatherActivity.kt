@@ -24,9 +24,7 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
         binding = ActivityWeatherBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel = ZeWeatherViewModel()
-        viewModel.getWeather().observe(this, Observer { newWeather ->
-            updateWeather(newWeather)
-        })
+
 
 
         val linearLayoutManager = LinearLayoutManager(
@@ -47,6 +45,8 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
                 UpdateCity()
             }
         }
+        createObservers()
+        viewModel.loadWeather()
 
 
     }
@@ -66,26 +66,13 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
             weatherDescrip.text = weatherHead.weather[0].main
             cityTxt.text = weatherHead.name
         }
-        viewModel.getListOfCities(weatherHead.coord.lat, weatherHead.coord.lon)
-            .observe(this, Observer { newWeather ->
-                (binding.weatherRv.adapter as WeatherAdapter).updateList(newWeather)
-            })
+        viewModel.loadListofCities(weatherHead.coord.lat, weatherHead.coord.lon)
+
     }
 
     private fun UpdateCity() {
         Log.d("_INFO", "We are updating the city")
-            viewModel.getWeatherByCity(binding.searchEdtxt.text.toString())
-                .observe(this, Observer { newWeather ->
-                    updateWeather(newWeather)
-                })
-
-    }
-    private fun UpdateCity(city: Cities) {
-        Log.d("_INFO", "We are updating the city")
-        viewModel.getWeatherByCity(city.name)
-            .observe(this, Observer { newWeather ->
-                updateWeather(newWeather)
-            })
+        viewModel.loadWeatherByCity(binding.searchEdtxt.text.toString())
 
     }
 
@@ -96,6 +83,17 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
     }
 
     override fun onItemClick(city: Cities) {
-        UpdateCity(city)
+        viewModel.loadWeatherByCity(city.name)
+    }
+    fun createObservers()
+    {
+        viewModel.getWeather()
+            .observe(this, Observer { newWeather ->
+                updateWeather(newWeather)
+            })
+        viewModel.getListOfCities()
+            .observe(this, Observer { newWeather ->
+                (binding.weatherRv.adapter as WeatherAdapter).updateList(newWeather)
+            })
     }
 }

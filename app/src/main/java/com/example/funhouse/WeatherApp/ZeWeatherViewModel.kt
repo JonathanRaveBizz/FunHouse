@@ -23,24 +23,30 @@ class ZeWeatherViewModel {
         WeatherApp.inject(this)
     }
 
-    fun getWeather() : LiveData<ZeWeatherHead>
-    {
+    fun getWeather() : LiveData<ZeWeatherHead> = weather
+    fun getListOfCities() : LiveData<List<Cities>> = city
+
+    fun loadWeather() {
         disposables.add(
             weatherRepo.getSpaghettiWeatherObservable()
-                .subscribeOn(Schedulers.io())
-                .subscribe(this::weatherSuccess, this::onError)
-        )
-        return weather
+            .subscribeOn(Schedulers.io())
+            .subscribe(this::weatherSuccess, this::onError))
     }
 
-    fun getListOfCities(lat : Double, lon : Double) : LiveData<List<Cities>>
+    fun loadListofCities(lat : Double, lon : Double)
     {
         disposables.add(
             weatherRepo.getMeatballTargetsObservable(lat, lon)
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::citiesSuccess, this::onError)
         )
-        return city
+    }
+
+    fun loadWeatherByCity(citytxt: String){
+        disposables.add(
+            weatherRepo.getSpaghettiWeatherObservable(citytxt)
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::weatherSuccess, this::onError))
     }
 
     private fun citiesSuccess(lost : CircleHead) {
@@ -56,13 +62,5 @@ class ZeWeatherViewModel {
         Log.e("_NETWORK", "Failed To Load Wallpapers $t")
     }
 
-    fun getWeatherByCity(citytxt: String): LiveData<ZeWeatherHead> {
-        disposables.add(
-            weatherRepo.getSpaghettiWeatherObservable(citytxt)
-                .subscribeOn(Schedulers.io())
-                .subscribe(this::weatherSuccess, this::onError)
-        )
-        return weather
 
-    }
 }

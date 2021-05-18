@@ -14,6 +14,13 @@ interface WeatherAPI {
         @Query("appid") appid : String = "d6316a51fce25dc4afac9c5ef8de0406",
         @Query("units") units : String= "imperial"
     ) : Single<ZeWeatherHead>
+    @GET("weather")
+    fun getWeatherByLatLon(
+        @Query("lat") lat : Double = 33.749,
+        @Query("lon") lon : Double = -84.388,
+        @Query("appid") appid : String = "d6316a51fce25dc4afac9c5ef8de0406",
+        @Query("units") units : String= "imperial"
+    ) : Single<ZeWeatherHead>
     @GET("find")
     fun getCities(
         @Query("lat") lat : Double = 33.749,

@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.animation.OvershootInterpolator
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -12,6 +13,7 @@ import com.example.funhouse.WallpaperSpawner.WallpaperAdapter
 import com.example.funhouse.WeatherApp.models.circleResponce.Cities
 import com.example.funhouse.WeatherApp.models.weather.ZeWeatherHead
 import com.example.funhouse.databinding.ActivityWeatherBinding
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 
 class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
     private lateinit var binding: ActivityWeatherBinding
@@ -39,6 +41,14 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
             adapter = mAdapter.apply {
                 listener = this@WeatherActivity
             }
+            itemAnimator = SlideInUpAnimator()
+            itemAnimator?.apply {
+                addDuration = 1000
+                removeDuration = 100
+                moveDuration = 1000
+                changeDuration = 100
+            }
+
         }
         binding.searchBtn.apply {
             setOnClickListener {
@@ -84,7 +94,7 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
 
     override fun onItemClick(city: Cities) {
         Log.d("DEBUG", "trying to load ${city.name}")
-        viewModel.loadWeatherByCity(city.name)
+        viewModel.loadWeatherByLatLon(city.coord.lat, city.coord.lon)
     }
     fun createObservers()
     {

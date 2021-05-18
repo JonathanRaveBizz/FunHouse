@@ -19,5 +19,9 @@ class WeatherRepository (private val weatherAPI: WeatherAPI){
     {
         return weatherAPI.getWeather(city=city)
     }
+    fun getSpaghettiWeatherByLatLonObservable(lat: Double, lon: Double) : Single<ZeWeatherHead>
+    {
+        return weatherAPI.getWeatherByLatLon(lat, lon)
+    }
 
 }

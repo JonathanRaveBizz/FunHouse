@@ -65,5 +65,13 @@ class ZeWeatherViewModel {
         Log.e("_NETWORK", "Failed To Load Wallpapers $t")
     }
 
+    fun loadWeatherByLatLon(lat: Double, lon: Double) {
+        disposables.add(
+            weatherRepo.getSpaghettiWeatherByLatLonObservable(lat=lat, lon=lon)
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::weatherSuccess, this::onError))
+
+    }
+
 
 }

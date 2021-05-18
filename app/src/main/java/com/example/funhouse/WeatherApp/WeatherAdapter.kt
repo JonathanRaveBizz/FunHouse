@@ -12,7 +12,7 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.ViewHolder>() {
     lateinit var listener: WeatherAdapterListener
     //lateinit var binding: WeatherItemBinding
 
-    private var weatherList: List<Cities> = emptyList()
+    private var weatherList: ArrayList<Cities> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
        val view = WeatherItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -22,14 +22,16 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.ViewHolder>() {
     override fun getItemCount(): Int = weatherList.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Log.d("DEBUG", "Binding for ${weatherList[position].name}" )
+        //Log.d("DEBUG", "Binding for ${weatherList[position].name}" )
         holder.bind(weatherList[position])
 
     }
 
     fun updateList(newList: List<Cities>) {
-        weatherList = newList
-        notifyDataSetChanged()
+        newList.forEach {
+            weatherList.add(it)
+            notifyItemInserted(weatherList.size-1)
+        }
     }
 
 

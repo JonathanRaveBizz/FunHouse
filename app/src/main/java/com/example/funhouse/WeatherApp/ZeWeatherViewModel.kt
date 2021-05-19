@@ -51,7 +51,7 @@ class ZeWeatherViewModel {
 
     private fun citiesSuccess(lost : CircleHead) {
         for (cities in lost.list) {
-            Log.d("DEBUG", "city ${cities.name}")
+            //Log.d("DEBUG", "city ${cities.name}")
         }
         city.postValue(lost.list)
     }
@@ -62,7 +62,7 @@ class ZeWeatherViewModel {
     }
     private fun onError(t: Throwable)
     {
-        Log.e("_NETWORK", "Failed To Load Wallpapers $t")
+        Log.e("_NETWORK", "Failed To Load Weather: $t")
     }
 
     fun loadWeatherByLatLon(lat: Double, lon: Double) {

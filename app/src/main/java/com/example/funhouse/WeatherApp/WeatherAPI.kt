@@ -27,6 +27,6 @@ interface WeatherAPI {
         @Query("lon") lon : Double = -84.388,
         @Query("appid") appid: String ="d6316a51fce25dc4afac9c5ef8de0406",
         @Query("units") units : String= "imperial",
-        @Query("cnt") count : Int = 10
+        @Query("cnt") count : Int = 20
     ) : Single<CircleHead>
 }

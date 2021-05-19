@@ -24,8 +24,8 @@ data class Cities (
 	@SerializedName("dt") val dt : Int,
 	@SerializedName("wind") val wind : Wind,
 	@SerializedName("sys") val sys : Sys,
-	@SerializedName("rain") val rain : String,
-	@SerializedName("snow") val snow : String,
+	@SerializedName("rain") val rain : Rain? = null,
+	@SerializedName("snow") val snow : Rain? = null,
 	@SerializedName("clouds") val clouds : Clouds,
 	@SerializedName("weather") val weather : List<Weather>
 )

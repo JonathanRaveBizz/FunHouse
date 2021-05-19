@@ -64,7 +64,7 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
     }
 
     private fun updateWeather(weatherHead: ZeWeatherHead) {
-        Log.d("_INFO", "We Got the Info for ${weatherHead.name}")
+        //Log.d("_INFO", "We Got the Info for ${weatherHead.name}")
         //weatherHead = mWeatherHead
 
         with(binding) {
@@ -83,7 +83,7 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
     }
 
     private fun UpdateCity() {
-        Log.d("_INFO", "We are updating the city")
+        //Log.d("_INFO", "We are updating the city")
         viewModel.loadWeatherByCity(binding.searchEdtxt.text.toString())
 
     }
@@ -95,7 +95,7 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
     }
 
     override fun onItemClick(city: Cities) {
-        Log.d("DEBUG", "trying to load ${city.name}")
+        //Log.d("DEBUG", "trying to load ${city.name}")
         viewModel.loadWeatherByLatLon(city.coord.lat, city.coord.lon)
     }
     fun createObservers()
@@ -106,10 +106,10 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
             })
         viewModel.getListOfCities()
             .observe(this, Observer { newWeather ->
-                Log.d("DEBUG", "we have ${newWeather.size} cities")
-                newWeather.forEach {
-                    Log.d("DEBUG", it.name)
-                }
+                //Log.d("DEBUG", "we have ${newWeather.size} cities")
+                //newWeather.forEach {
+                    //Log.d("DEBUG", it.name)
+                //}
                 mAdapter.ClearList()
                 mAdapter.updateList(newWeather)
 

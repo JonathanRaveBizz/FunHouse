@@ -34,6 +34,16 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.ViewHolder>() {
         }
     }
 
+    fun ClearList() {
+        if (weatherList.isNotEmpty()) {
+            for (i in weatherList.size-1 downTo 0)
+            {
+                weatherList.removeAt(i)
+                notifyItemRemoved(i)
+            }
+        }
+    }
+
 
     inner class ViewHolder(val binding: WeatherItemBinding) : RecyclerView.ViewHolder(binding.root) {
         //private lateinit var weatherItem: Cities

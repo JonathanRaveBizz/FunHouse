@@ -13,6 +13,7 @@ import com.example.funhouse.WallpaperSpawner.WallpaperAdapter
 import com.example.funhouse.WeatherApp.models.circleResponce.Cities
 import com.example.funhouse.WeatherApp.models.weather.ZeWeatherHead
 import com.example.funhouse.databinding.ActivityWeatherBinding
+import com.example.funhouse.extentions.hideKeyboard
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 
 class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
@@ -53,6 +54,7 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
         binding.searchBtn.apply {
             setOnClickListener {
                 UpdateCity()
+                hideKeyboard()
             }
         }
         createObservers()
@@ -108,6 +110,7 @@ class WeatherActivity : AppCompatActivity() , WeatherAdapterListener{
                 newWeather.forEach {
                     Log.d("DEBUG", it.name)
                 }
+                mAdapter.ClearList()
                 mAdapter.updateList(newWeather)
 
             })

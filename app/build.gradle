@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    //id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -98,4 +99,7 @@ dependencies {
 
     implementation "androidx.multidex:multidex:2.0.1"
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
+
+    //implementation "com.google.dagger:hilt-android:$hilt_version"
+    //kapt "com.google.dagger:hilt-compiler:$hilt_version"
 }

@@ -9,4 +9,7 @@
     <string name="weather">Weather</string>
     <string name="wallpaper_dl">Wallpaper DL</string>
     <string name="city_search_txt">Search for a City</string>
+    <string name="add_new">Add New</string>
+    <string name="scam_db">Scam DB</string>
+    <string name="scammer_name">Scammer Name</string>
 </resources>

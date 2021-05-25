@@ -11,8 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FunHouse"
         android:usesCleartextTraffic="true">
-        <activity android:name=".WeatherApp.WeatherActivity"></activity>
-        <activity android:name=".WallpaperSpawner.WallpaperActivity"></activity>
+        <activity android:name=".scamdb.scamActivity"></activity>
+        <activity android:name=".WeatherApp.WeatherActivity" />
+        <activity android:name=".WallpaperSpawner.WallpaperActivity" />
         <activity android:name=".JailHouse.JailHouseRock" />
         <activity android:name=".MainActivity">
             <intent-filter>

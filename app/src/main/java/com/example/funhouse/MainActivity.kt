@@ -6,6 +6,7 @@ import com.example.funhouse.JailHouse.JailHouseRock
 import com.example.funhouse.WallpaperSpawner.WallpaperActivity
 import com.example.funhouse.WeatherApp.WeatherActivity
 import com.example.funhouse.databinding.ActivityMainBinding
+import com.example.funhouse.scamdb.ScamActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
@@ -25,6 +26,10 @@ class MainActivity : AppCompatActivity() {
         binding.wallpaperBtn.setOnClickListener(){
             AnimeTheAnimeWeeb()
         }
+        binding.scamBtn.setOnClickListener(){
+            ScamyThings()
+        }
+
 
 
     }
@@ -38,6 +43,10 @@ class MainActivity : AppCompatActivity() {
     private fun AnimeTheAnimeWeeb()
     {
         startActivity(WallpaperActivity.newIntent(this))
+    }
+    private fun ScamyThings()
+    {
+        startActivity(ScamActivity.newIntent(this))
     }
 
 }
